@@ -1,1 +1,1 @@
-web: gunicorn taas:app
+web: gunicorn runserver:app
