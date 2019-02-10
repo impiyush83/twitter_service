@@ -1,8 +1,9 @@
 import json
 
-import tweepy
 from flask import current_app as app
 from flask_restful import Resource
+
+from taas_restful.utils.tweepy_client import tweepy_client
 
 
 class Tweets(Resource):
@@ -38,10 +39,8 @@ class Tweets(Resource):
         """
         data = []
         try:
-            auth = tweepy.OAuthHandler(app.config.get("CONSUMER_KEY"), app.config.get("CONSUMER_SECRET"))
-            auth.set_access_token(app.config.get("ACCESS_TOKEN"), app.config.get("ACCESS_TOKEN_SECRET"))
-            api = tweepy.API(auth)
-            tweets = api.home_timeline()
+            tweepy_api_client = tweepy_client()
+            tweets = tweepy_api_client.home_timeline()
         except Exception as e:
             return dict(message="Authentication Error"), 400
         if not tweets:
