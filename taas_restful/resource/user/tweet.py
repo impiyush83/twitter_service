@@ -83,7 +83,5 @@ class Tweet(Resource):
             response = make_response(render_template('tweet_page.html'), headers)
             return response
         except:
-            import pdb
-            pdb.set_trace()
             response = make_response(render_template('400.html'), headers)
             return response
