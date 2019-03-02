@@ -12,3 +12,5 @@ class Config(object):
     CONSUMER_SECRET = os.environ.get("CONSUMER_SECRET", default="default")
     ACCESS_TOKEN = os.environ.get("ACCESS_TOKEN", default="877038860-default")
     ACCESS_TOKEN_SECRET = os.environ.get("ACCESS_TOKEN_SECRET", default="default")
+    DATABASE_URL = "sqlite:///customer_details.db"
+    # DATABASE_URL = os.environ.get("DATABASE_URL", default="fake_db_path")

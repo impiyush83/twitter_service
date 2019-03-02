@@ -1,8 +1,8 @@
 import tweepy
-from flask import current_app as app
 
 
-def tweepy_client():
-    auth = tweepy.OAuthHandler(app.config.get("CONSUMER_KEY"), app.config.get("CONSUMER_SECRET"))
-    auth.set_access_token(app.config.get("ACCESS_TOKEN"), app.config.get("ACCESS_TOKEN_SECRET"))
+def tweepy_client(consumer_key, consumer_secret, access_token, access_token_secret):
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
     return tweepy.API(auth)
+
