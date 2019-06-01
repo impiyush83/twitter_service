@@ -3,4 +3,3 @@ from taas_restful.settings import Config
 
 
 app = create_app(Config)
-app.run()
